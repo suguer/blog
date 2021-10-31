@@ -1,6 +1,7 @@
 ---
 title: "Pay"
 date: 2021-10-31T20:29:23+08:00
+description: "about pay address and transaction"
 ---
 
 {{%alert info%}} 创建收款地址  /api/pay/create_address  {{%/alert%}}   
