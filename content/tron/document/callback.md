@@ -2,6 +2,7 @@
 title: "Callback"
 date: 2021-10-31T20:29:17+08:00  
 description: "about user action"
+weight: 3
 ---
 
 {{%alert info%}} 获取回调配置  /api/callback/index  {{%/alert%}}

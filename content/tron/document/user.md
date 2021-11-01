@@ -2,6 +2,7 @@
 title: "User"
 date: 2021-10-31T20:29:17+08:00  
 description: "about user action"
+weight: 1
 ---
 
 {{%alert info%}} 获取用户信息  /api/user/info  {{%/alert%}}
