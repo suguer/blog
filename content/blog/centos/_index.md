@@ -9,3 +9,6 @@ grep -ln "keyword" 05-01-00hour.log ...(可以携带多个文件名)
 打印存在关键词的文件名  
 05-19-19hour.log  
 05-20-00hour.log
+
+#### dig
+dig @180.76.76.76 www.baidu.com
