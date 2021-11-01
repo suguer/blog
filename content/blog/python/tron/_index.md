@@ -14,7 +14,7 @@ requests
 
 for example : 轮询智能冻结能量
 
-```
+```python
 # -*- coding: utf-8 -*-
 from tronapi.tronapi import Tronapi
 from tronapi import keys

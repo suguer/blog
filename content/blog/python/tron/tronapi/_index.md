@@ -210,7 +210,7 @@ def conf_for_name(name: str) -> dict:
 ```
   
 exceptions.py  
-```html
+```python
 CONF_MAINNET = {
     "fullnode": "https://api.trongrid.io",
     "event": "https://api.trongrid.io",
@@ -619,7 +619,7 @@ __all__ = [
 ```
 
 cache.py
-```
+```python
 import os.path
 from pathlib import Path
 import json

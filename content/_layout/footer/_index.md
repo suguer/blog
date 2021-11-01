@@ -8,7 +8,6 @@ title: Footer
 .footer-gray {
   width: 100%;
   color: #888;
-  display: none;
 }
 
 .footer-custom {
@@ -279,6 +278,9 @@ title: Footer
 
 </style>
   <div class="footer-gray">
+  <a href="http://beian.miit.gov.cn/">粤ICP备19150058号</a>
+  </div>
+  <div class="footer-gray" style="display: none;">
     <div class="footer-custom">
       <div class="footer-lists">
         <div class="footer-list-wrap">
