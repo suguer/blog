@@ -3,7 +3,8 @@ title: "Ssl"
 date: 2021-10-31T20:09:30+08:00
 draft: true
 ---
-
+检测域名证书
+http://uswen.racent.com/v1/certscan/getrenewssl/baidu.com
 
 ```php
  /**
