@@ -279,6 +279,7 @@ title: Footer
 </style>
   <div class="footer-gray">
   <a href="http://beian.miit.gov.cn/">粤ICP备19150058号</a>
+  <p>Copyright © 2000- 2021</p>
   </div>
   <div class="footer-gray" style="display: none;">
     <div class="footer-custom">

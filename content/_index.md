@@ -9,7 +9,7 @@ Welcome to the website.
 - If you want to know how to use TronApi , [click me](/tron/)
 - If you want to get more different something , [click me](/blog/) 
 - If you want to get other resources , [click me](/resources)
-- If you are interested in me, just contact me , Email: 
+- If you are interested in me, just contact me , Email: ken_support@163.com 
 
 
 
