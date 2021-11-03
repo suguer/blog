@@ -3,6 +3,9 @@ title: "Wechat"
 date: 2021-10-31T20:11:38+08:00
 weight: 4
 ---
+
+[官网wechat](https://mp.weixin.qq.com/) |
+[文档](https://developers.weixin.qq.com/doc/offiaccount/Getting_Started/Overview.html)  
 很实用的第三方库    [easywechat](https://www.easywechat.com/)
 
 #### 抓包
