@@ -60,6 +60,8 @@ fi
 
 /home/git/.bashrc
 ```base
+/bin/stty intr ''
+. /home/git/gitfun.inc.sh
 echo passwd
 echo project
 
@@ -88,4 +90,12 @@ echo "no such repository"
 fi
 done
 exit
+```
+
+
+使用git角色登录服务器 或者 su git
+```base
+passwd
+project
+input the repository name[input 'end' to exit] ?
 ```
