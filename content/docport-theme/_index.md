@@ -4,6 +4,7 @@ description: first page
 title: DocPort Theme for Hugo
 weight: 2
 head: <hr/>
+draft: true
 ---
 [DocPort](https://github.com/vjeantet/hugo-theme-docport), a professional documentation theme built for Hugo. \
 It provides a simple navigation, automatic search engine, a high level of configuration and a bunch of shortcodes crafted for documentation (attachment, presentations, child pages, notice, alerts, diagrams...).

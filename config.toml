@@ -72,8 +72,8 @@ tabWidth = 2
 #
 # top menu shotcuts
 #
-[[menu.shortcuts]]
-name = "Backend"
-identifier = "ds"
-url = "https://github.com/vjeantet/hugo-theme-docport"
-weight = 10
+#[[menu.shortcuts]]
+#name = "Backend"
+#identifier = "ds"
+#url = "https://github.com/vjeantet/hugo-theme-docport"
+#weight = 10

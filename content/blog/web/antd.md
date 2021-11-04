@@ -47,3 +47,41 @@ compilerOptions:{
     }
 }
 ```
+### 其他注意事项
+* [request 拦截器](https://pro.ant.design/zh-CN/docs/request)
+```tsx
+import {RequestConfig,} from "@@/plugin-request/request";
+
+const authHeaderInterceptor = (url: string, options: RequestConfig) => {
+  const Token=localStorage.getItem('Token');
+  return {
+    url: `${url}`,
+    options: { ...options,params:{token:Token,...options.params}, interceptors: true, },
+  };
+};
+
+export const request: RequestConfig = {
+  errorHandler:()=>{
+
+  },
+  // 新增自动添加AccessToken的请求前拦截器
+  requestInterceptors: [authHeaderInterceptor],
+};
+
+```
+
+* componentDidMount 用法改动 => useEffect 用法
+```tsx
+    import React, {useEffect} from "react";
+    useEffect(() => {
+    // 首次加载页面时请求数据 类似于以前的 componentDidMount
+    // do something...
+    }, []);
+```
+
+* useState 用法
+```tsx
+  import React, { useState} from "react";
+  const [CallbackData, setCallbackData] = useState<any>([]);
+  setCallbackData([]);
+```
