@@ -85,3 +85,25 @@ export const request: RequestConfig = {
   const [CallbackData, setCallbackData] = useState<any>([]);
   setCallbackData([]);
 ```
+
+* ProTable 的数据格式 [文档](http://www.l.taoa.com:8000)
+```tsx
+ request={
+        async (
+          // 第一个参数 params 查询表单和 params 参数的结合
+          // 第一个参数中一定会有 pageSize 和  current ，这两个参数是 antd 的规范
+          params: any & {
+            pageSize: number;
+            current: number;
+          },
+        ) => {
+          const data = await DomainDescribePromoPackageIndex(params);
+          return {
+            data:data.Data,
+            success: true,
+            total: data.Pagination.total,
+          }
+        }
+
+      }
+```
