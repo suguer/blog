@@ -2,7 +2,7 @@
 title: "PowerDns"
 date: 2021-10-31T10:08:33+08:00
 weight: 1
-description: "Dns"
+description: "PowerDns"
 ---
 
 [powerdns](https://doc.powerdns.com/) |
