@@ -3,6 +3,13 @@ title: "Punycode"
 date: 2021-10-31T20:08:04+08:00
 ---
 
+域名的编码解码  
+###  什么是PunyCode  
+英文域名在IIS或Apache中的虚拟主机设置，可以直接使用英文域名，如webmasterhome.cn。
+中文域名在IIS或Apache中应如何设置主机头呢  
+在进行设置之前要先把中文域名转化成为PunyCode编码，然后在主机头设置里面填上中文域名所对应的PunyCode编码(xn--fiqsC146Ah4ex80Cro7A.com)便可。
+新的国际化域名的标准在网域名称编码上，为了保留向下兼容性及不影响现有的应用程序协议，因此将多国语言域名转成ASCII编码
+
 ```php
 <?php
 
