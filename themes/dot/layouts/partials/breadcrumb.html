@@ -1,0 +1,23 @@
+{{ $currentNode := . }}
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0 p-0 m-2" style="background-color: var(--body-color)">
+            <li class="breadcrumb-item"><a href="/" class="text-secondary">首页</a></li>
+            {{range .Site.Home.Sections.ByWeight}}
+            {{ if eq .FirstSection $currentNode.FirstSection }}
+            {{ if $currentNode.Parent.IsHome }}
+            {{else}}
+            {{ if $currentNode.Parent.Parent.IsHome }}
+            {{else}}
+            <li class="breadcrumb-item"><a href="{{$currentNode.Parent.Parent.Permalink }}" class="text-secondary">{{ $currentNode.Parent.Parent.Title }}</a></li>
+            {{end}}
+            <li class="breadcrumb-item"><a href="{{$currentNode.Parent.Permalink }}" class="text-secondary">{{ $currentNode.Parent.Title }}</a></li>
+            {{end}}
+            <li class="breadcrumb-item active"><a href="{{.Permalink }}">{{ $currentNode.Title }}</a></li>
+            {{else}}
+            {{ end }}
+            {{ end }}
+            <br>
+        </ol>
+    </nav>
+</div>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-us{{ end }}">
+  {{ partial "head.html" . }}
+  
+  <body>
+    {{ if .IsHome }}
+    {{ "<!-- header -->" | safeHTML }}
+    <header>
+      {{ partial "navigation.html" . }}
+      {{ partial "banner.html" . }}
+    </header>
+    {{ "<!-- /header -->" | safeHTML }}
+    {{ else }}
+    {{ "<!-- header -->" | safeHTML }}
+    <header class="sticky-top">
+      <div class="shadow-bottom bg-white">
+        {{ partial "navigation.html" . }}
+      </div>
+    </header>
+    {{ "<!-- /header -->" | safeHTML }}
+    {{ end }}
+    {{ block "main" . }}{{ end }}
+    {{ partial "footer.html" . }}
+  </body>
+
+</html>

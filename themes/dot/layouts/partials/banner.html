@@ -1,0 +1,39 @@
+{{ "<!-- banner -->" | safeHTML }}
+<div class="banner {{if .Site.Params.banner.bg_image}}overlay bg-cover{{else}}bg-primary{{end}}" data-background="{{ .Site.Params.banner.bg_image | absURL }}">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 text-center mx-auto">
+				<h2 class="text-white mb-3 font-weight-normal">{{ .Site.Params.banner.title | markdownify }}</h2>
+				{{- if .Site.Params.algolia.appId -}}
+				<div class="input-group mb-3 input-wrapper">
+					<input type="search" class="docsearch-input form-control" id="docsearch-input" placeholder="请输入要查找的关键字" />
+
+					<div class="input-group-append">
+					<span class="input-group-text rounded-0 border-0 px-4"  id="basic-addon2">
+						<i class="ti-search text-white"></i>
+					</span>
+					</div>
+				</div>
+				<script>
+					docsearch({
+						apiKey: {{ .Site.Params.algolia.searchOnlyKey }},
+					indexName: {{ .Site.Params.algolia.indexName }},
+					appId: {{ .Site.Params.algolia.appId }},
+					inputSelector: '.docsearch-input',
+							debug: true,
+					});
+					// var objects = document.getElementsByClassName("docsearch-input").value;
+					// var client = algoliasearch({{ .Site.Params.algolia.appId }}, {{ .Site.Params.algolia.searchOnlyKey }});
+					// var index = client.initIndex({{ .Site.Params.algolia.indexName }});
+					// index.setSettings({
+					//   minWordSizefor1Typo: 4
+					// }).then(() => {
+					//   // done
+					// });
+				</script>
+				{{- end -}}
+			</div>
+		</div>
+	</div>
+</div>
+{{ "<!-- /banner -->" | safeHTML }}
