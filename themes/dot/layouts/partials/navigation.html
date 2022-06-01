@@ -1,0 +1,120 @@
+<nav class="navbar navbar-expand-md {{ if .IsHome }}navbar-dark{{ else }}navbar-light{{ end }}">
+  <div class="top_container">
+	  <div class="topbox text-center">
+	  	<div class="top_left_text text-white">
+	  		<span class="nav_gap"><a class="text-white" href="{{ site.Params.certUrl }}">{{ site.Params.certText_left }}</a>{{ site.Params.certText_right }}</span>
+			<span class="other_links">
+				<a target="_blank" class="text-orange" href="{{ site.Params.nowcn_link }}">{{ site.Params.nowcn_text }}</a>
+				<a target="_blank" class="text-white" href="{{ site.Params.agent_link }}">{{ site.Params.agent_text }}</a>
+				<a target="_blank" class="text-white" href="{{ site.Params.domain_link }}">{{ site.Params.domain_text }}</a>
+				<a target="_blank" class="text-white" href="{{ site.Params.pay_link }}">{{ site.Params.pay_text }}</a>
+				<a target="_blank" class="text-white" href="{{ site.Params.contact_link }}">{{ site.Params.contact_text }}</a>
+			</span>
+			<span class="text-orange">{{ site.Params.nav_phone }}</span>
+	  	</div>
+	  </div>
+    <div class="navbar text-center p-2 d-flex justify-content-md-center justify-content-between">
+		<div class="navbar">
+			<a class="navbar-brand" href="{{ site.BaseURL | relLangURL }}">
+			  {{ $logo:= site.Params.logo }}
+			  {{ $logoWhite:= site.Params.logo_white }}
+			  {{ if (or $logo $logoWhite) }}
+			  {{ if .IsHome }}
+			  <img class="img-fluid" src="{{if $logoWhite }}{{ $logoWhite | absURL }} {{ else }} {{ $logo | absURL }}{{ end }}"
+			    alt="{{ site.Title }}">
+			  {{ else }}
+			  <img class="img-fluid" src="{{ $logo | absURL }}" alt="{{ site.Title }}">
+			  {{ end }}
+			  {{ else }}
+			  {{ site.Title }}
+			  {{ end }}
+			</a>
+			<span class="help_title text-orange">
+				{{ site.Params.subtitle }}
+			</span>
+		</div>
+		<button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+		  aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse text-center mx-4 flex-grow-0" id="navigation">
+			<ul class="navbar-nav text-center ml-auto mr-auto h4">
+				<li class="nav-item">
+					<a class="nav-link text-primary" href="{{ site.BaseURL | relLangURL }}">{{ site.Params.home }}</a>
+				</li>
+				{{ range site.Menus.main }}
+				{{ if .HasChildren }}
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+					   aria-haspopup="true" aria-expanded="false">
+						{{ .Name }}
+					</a>
+					<div class="dropdown-menu">
+						{{ range .Children }}
+						<a  class="dropdown-item" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+						{{ end }}
+					</div>
+				</li>
+				{{ else }}
+				{{ if eq .Name "文档下载" }}
+				<li class="nav-item">
+					<a class="nav-link text-dark" target="_blank" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+				</li>
+				{{else}}
+				<li class="nav-item">
+					<a class="nav-link text-dark" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+				</li>
+				{{end}}
+				{{ end }}
+				{{ end }}
+			</ul>
+			<!-- Language List -->
+			{{- if site.IsMultiLingual }}
+			<select class="lang-list {{ if not .IsHome }}dark{{ end }}" id="select-language"
+					onchange="location = this.value;">
+				{{ $siteLanguages := site.Languages}}
+				{{ $pageLang := .Page.Lang}}
+				{{ range .Page.AllTranslations }}
+				{{ $translation := .}}
+				{{ range $siteLanguages }}
+				{{ if eq $translation.Lang .Lang }}
+				{{ $selected := false }}
+				{{ if eq $pageLang .Lang}}
+				<option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}" selected>{{ .LanguageName }}
+				</option>
+				{{ else }}
+				<option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}">{{ .LanguageName }}</option>
+				{{ end }}
+				{{ end }}
+				{{ end }}
+				{{ end }}
+			</select>
+			{{ end }}
+		</div>
+		<div class="d-none d-md-inline-block">
+			{{- if .Site.Params.algolia.appId -}}
+			<input type="search" class="docsearch-input-nav align-middle mr-2 " placeholder="请输入关键词" />
+			<script>
+				docsearch({
+					apiKey: {{ .Site.Params.algolia.searchOnlyKey }},
+				indexName: {{ .Site.Params.algolia.indexName }},
+				appId: {{ .Site.Params.algolia.appId }},
+				inputSelector: '.docsearch-input-nav',
+						debug: true,
+				});
+			</script>
+			{{- end -}}
+
+			<div class="submenu d-inline-block">
+				{{ range site.Params.submenu }}
+				{{ if eq .name "在线客服" }}
+				<li class="list-inline-item"><a target="_blank" class="customer_service text-dark d-inline-block py-2" href="{{ .url | safeURL }}"><img class="w-25" src="{{ .src | absURL }}" >{{ .name }}</a></li>
+				{{else}}
+				<li class="list-inline-item"><a target="_blank" class="text-dark d-inline-block py-2" href="{{ .url | safeURL }}"><img class="w-25" src="{{ .src | absURL }}" >{{ .name }}</a></li>
+				{{end}}
+				{{ end }}
+			</div>
+		</div>
+	</div>
+  </div>
+</nav>
