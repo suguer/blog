@@ -1,79 +1,107 @@
-baseURL = "http://doc.hello-api.cn/"
-
-languageCode = "en-us"
-DefaultContentLanguage = "en"
-title = "Suzzzj Blog"
-theme = "docport"
-#themesdir = "../.."
-pygmentsCodeFences = true
-pygmentsStyle = "monokai"
-
-
-defaultContentLanguageInSubdir= false
-enableMissingTranslationPlaceholders = false
-
-
-# [Languages]
-# [Languages.en]
-# title = "Documentation for Hugo docport"
-# weight = 1
-# languageName = "English"
-#
-# [Languages.fr]
-# title = "Documentation du thème docport"
-# weight = 2
-# languageName = "Français"
-
-
-
-disableKinds = ["taxonomy", "taxonomyTerm", "category", "RSS"]
-
-[params]
-ordersectionsby = "weight" # ordersectionsby = "title"
-color_main = "#737373"
-#color_second = "#b30000"
-disableSearch = false # default is false
-disableNavChevron = false # set true to hide next/prev chevron, default is false
-menushortcutsnewtab = false # set true to open shortcuts links to a new tab/window
-
-#editURL = "https://github.com/vjeantet/hugo-theme-docport/edit/master/exampleSite/content/"
-editWithNetlifyCMSURL = "admin/#/collections/pages/entries/"
-enableGitInfo = true
-
-[mediaTypes]
-[mediaTypes."application/netlifyconfig"]
-suffixes = ["yml"]
-
-[outputFormats]
-[outputFormats.netlifyyaml]
-mediaType = "application/netlifyconfig"
-isPlainText = true
-isHTML = false
-notAlternative = true
+################################# Default configuration ###################
+# provide your domain here
+baseURL = "/"
+# theme
+theme = "dot"
+# site title 
+title = "欢迎使用"
+# disable language
+disableLanguages = []
+# google analytics
+googleAnalytics = "" # paste your analytics ID here. (Ex: UA-123-45)
+DefaultContentLanguage = "cn"
+enableRobotsTXT = true
+# unsafe html
+[markup.goldmark.renderer]
+unsafe= true
 
 [outputs]
-home = [ "HTML", "RSS", "JSON"]
+    home = ["HTML", "RSS", "Algolia"]
+	
+[outputFormats.Algolia]
+  baseName = "algolia"
+  isPlainText = true
+  mediaType = "application/json"
+  notAlternative = true
+  
+[params.algolia]
+  vars = ["title"]
+  appId = "Q2DLLGTW9U"
+  indexName = "www.hello-api.cn"
+  searchOnlyKey = "b50572fce929a1c483f47817811a0e2c"
+  
+################################# navigation ################################
 
-[markup.goldmark.renderer]
-unsafe = true
+[[menu.main]]
+name = "PHP"
+url = "/php"
+weight = 2
+[[menu.main]]
+name = "Python"
+url = "/python"
+weight = 3
+[[menu.main]]
+name = "最新资讯"
+url = "/news"
+weight = 4
 
-# Code highlight configuration
-[markup.highlight]
-codeFences = true
-guessSyntax = true
-hl_Lines = ""
-lineNoStart = 1
-lineNos = false
-lineNumbersInTable = true
-noClasses = true
-style = "monokai"
-tabWidth = 2
+################################# friends links ################################
+# [[params.first_line]]
+# text = "手机客户端"
+# url = "/"
 
-#
-# top menu shotcuts
-#
-#[[menu.shortcuts]]
-#name = "Backend"
-#identifier = "ds"
-#url = "https://github.com/vjeantet/hugo-theme-docport"
-#weight = 10
+# [[params.second_line]]
+# text = "友情链接："
+# url = ""
+############################# Default Parameters ##########################
+[params]
+# logo is for all page
+logo = "images/favicon.png"
+# logo white is for homepage logo, you can use colorful logo too...
+logo_white = ""
+# when logo is empty, it will shown your site title
+
+subtitle = "个人博客"
+keywords=""
+description=""
+
+copyright = ""
+beian = "粤ICP备19150058号"
+icplink = "http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44040202000047"
+beianlink = "http://beian.miit.gov.cn/"
+
+# customize color
+primary_color = "#3c8dBc"
+body_color = "#f9f9f9"
+text_color = "#636363"
+text_color_dark = "#242738"
+white_color = "#ffffff"
+light_color = "#f8f9fa"
+
+# font family
+font_family = "lato" # Choose font family from : https://fonts.google.com/
+
+# contact form action
+contact_form_action = "#" # contact form works with : https://formspree.io
+
+################################# submenu ################################
+[[params.submenu]]
+name = "Github"
+src = "images/github.png"
+url = "https://github.com/suguer"
+
+
+################################ Chinese Language ######################
+[Languages.cn]
+languageName = "中文"
+languageCode = "cn"
+weight = 1
+home = "首页"
+# banner
+[Languages.cn.params.banner]
+title = "欢迎使用时代互联帮助中心"
+bg_image = "images/banner-bg.png"
+placeholder = "有问题吗？在这里询问或输入条件"
+
+
+

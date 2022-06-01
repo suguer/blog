@@ -1,137 +1,7 @@
 {{ define "main" }}
 
   {{ "<!-- topics -->" | safeHTML }}
-  <section class="pb-0">
-    <div class="bg-white">
-      <div class="py-4 container">
-        <div class="mb-3"><span class="common-title">热门问题</span><span class="ml-3" id="textChange" style="color:#007BEE;font-size:14px;cursor: pointer">换一批</span></div>
-        <div class="hotQues">
-          <div class="d-flex flex-wrap justify-content-between ">
-            <div>
-              <ul>
-                <li>
-                  <a href="domain/22/">如何进行域名实名认证？</a>
-                </li>
-                <li>
-                  <a href="/enow/5/">如何买入优选一口价域名?</a>
-                </li>
-                <li>
-                  <a href="/trademark/4/1/">购买商标的注意事项</a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <ul>
-                <li>
-                  <a href="/user/user_auth/">用户如何实名认证？</a>
-                </li>
-                <li>
-                  <a href="/ssl/question/">SSL证书常见问题</a>
-                </li>
-                <li>
-                  <a href="/email/cy_mail/8/">卓越畅邮如何添加管理员邮箱 ？</a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <ul>
-                <li>
-                  <a href="/domain/23/">如何操作域名解析？</a>
-                </li>
-                <li>
-                  <a href="/user/pwd_question/">密保答案忘记了怎么办？</a>
-                </li>
-                <li>
-                  <a href="/agent/6/">要成为代理商需要办理哪些手续？</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="d-none flex-wrap justify-content-between ">
-            <div>
-              <ul>
-                <li>
-                  <a href="/domain/do_transfer/">域名过户</a>
-                </li>
-                <li>
-                  <a href="/domain/reg_domain/">如何注册域名？</a>
-                </li>
-                <li>
-                  <a href="/domain/17/">如何进行域名转出（获取域名转移密码）</a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <ul>
-                <li>
-                  <a href="/vhost/3/29/">如何迁移全能型云虚机</a>
-                </li>
-                <li>
-                  <a href="/vhost/3/25/">全能型云虚主机如何备份、还原、导入数据库</a>
-                </li>
-                <li>
-                  <a href="/vhost/2/17/">Linux专业型云虚机如何修改FTP密码</a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <ul>
-                <li>
-                  <a href="/email/cy_mail/16/">时代卓越畅邮购买流程</a>
-                </li>
-                <li>
-                  <a href="/cloud/20/">云服务器如何申请独立IP</a>
-                </li>
-                <li>
-                  <a href="/cloud/13/">如何设置云服务器自动续费</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="d-none flex-wrap justify-content-between ">
-            <div>
-              <ul>
-                <li>
-                  <a href="/web/6/">如何利用精美模板制作1个企业网站</a>
-                </li>
-                <li>
-                  <a href="/pay/7/">如何索取增值税专用发票（纸质发票）和注意事项</a>
-                </li>
-                <li>
-                  <a href="/pay/5/">如何进行转账确认</a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <ul>
-                <li>
-                  <a href="/mobile/7/">如何方便快捷的发送短信？</a>
-                </li>
-                <li>
-                  <a href="/enow/12/">如何抢注域名</a>
-                </li>
-                <li>
-                  <a href="/enow/1/">过期竞价域名注意事项</a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <ul>
-                <li>
-                  <a href="">如何进行域名实名认证？</a>
-                </li>
-                <li>
-                  <a href="">如何买入优选一口价域名?</a>
-                </li>
-                <li>
-                  <a href="">购买商标的注意事项</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <section class="pb-0" >
     <div class="container py-4">
       <div class="common-title mb-4">
         {{ i18n "topics_title" | safeHTML }}
@@ -139,20 +9,6 @@
       <div class="row">
         {{ "<!-- topic-item -->" | safeHTML }}
         {{ range (where .Site.Pages "Type" "docs") }}
-        {{ if eq .Params.Name "doc" }}
-        <div class="col-lg-3 col-sm-6 mb-4">
-          <div class="px-4 py-4 bg-white shadow d-block match-height">
-            <a href="https://www.now.cn/support/doc.php" class="d-block mb-3">
-              <img src="{{ .Params.Icon }}" class="align-middle mr-1" alt="">
-              <span class="text-dark">{{ .Title }}</span>
-            </a>
-            <p class="mb-0 list-extro">
-              <a href="https://www.now.cn/support/doc/attorn.doc">域名转让协议</a>|
-              <a href="https://www.now.cn/support/doc/idc_t.doc">服务器托管合同</a>
-            </p>
-          </div>
-        </div>
-        {{ else }}
         <div class="col-lg-3 col-sm-6 mb-4">
           <div class="px-4 py-4 bg-white shadow d-block match-height">
             <a href="{{ .Permalink }}" class="d-block mb-3">
@@ -160,64 +16,10 @@
               <span class="text-dark">{{ .Title }}</span>
             </a>
             <p class="mb-0 list-extro">
-              {{ if eq  .Title "域名相关" }}
-              <a href="/domain/reg_domain/">域名注册</a>|
-              <a href="/domain/22/">实名认证</a>|
-              <a href="/domain/template/">域名模板</a>
-              {{ else if eq  .Title "域名交易" }}
-              <a href="/enow/8/">域名交易</a>|
-              <a href="/enow/16/">过期竞价</a>|
-              <a href="/enow/12/">抢注域名</a>
-              {{ else if eq  .Title "SSL证书" }}
-              <a href="/ssl/question/">常见问题</a>|
-              <a href="/ssl/buy/1/">证书购买</a>|
-              <a href="/ssl/install/">安装流程</a>
-              {{ else if eq  .Title "云企业邮箱" }}
-              <a href="/email/cy_mail/">卓越畅邮</a>|
-              <a href="/email/14/">企业邮箱</a>|
-              <a href="/email/17/">邮箱管理</a>
-              {{ else if eq  .Title "云服务器" }}
-              <a href="/cloud/19/">服务器管理</a>|
-              <a href="/cloud/14/">服务器升级</a>
-              {{ else if eq  .Title "建站服务" }}
-              <a href="/web/7/">商务建站教程</a>|
-              <a href="/web/2/">修改登录密码</a>
-              {{ else if eq  .Title "云虚拟主机" }}
-              <a href="/vhost/3/23/">数据库密码</a>|
-              <a href="/vhost/3/8/">绑定域名</a>
-              {{ else if eq  .Title "用户账号" }}
-              <a href="/user/user_auth/">实名认证</a>|
-              <a href="/user/forgetpwd/">忘记密码</a>|
-              <a href="/user/register/">用户注册</a>
-              {{ else if eq  .Title "网站备案" }}
-              <a href="/icp/19/">查询备案</a>|
-              <a href="/icp/1/">备案中心</a>|
-              <a href="/icp/10/">短信验证</a>
-              {{ else if eq  .Title "商标服务" }}
-              <a href="/trademark/4/">商标交易</a>|
-              <a href="/trademark/1/">商标注册</a>|
-              <a href="/trademark/3/">香港商标</a>
-              {{ else if eq  .Title "财务相关" }}
-              <a href="/pay/8/">消费明细</a>|
-              <a href="/pay/7/">增值发票</a>|
-              <a href="/pay/3/">在线充值</a>
-              {{ else if eq  .Title "企业短信" }}
-              <a href="/mobile/13/">特色功能</a>|
-              <a href="/mobile/2/">定时发送</a>|
-              <a href="/mobile/1/">短信余额</a>
-              {{ else if eq  .Title "代理相关" }}
-              <a href="/agent/1/">代理合作</a>|
-              <a href="/agent/10/">代理协议</a>|
-              <a href="/agent/6/">代理商</a>
-              {{ else if eq  .Title "其他" }}
-              <a href="/other/trust/">可信网站</a>|
-              <a href="/other/codeguard/">Codeguard</a>|
-              <a href="/other/sitelock/">Sitelock</a>
-              {{ end }}
+              {{.Description}}
             </p>
           </div>
         </div>
-        {{ end }}
         {{ end }}
       </div>
     </div>
@@ -231,31 +33,12 @@
       <div class="d-flex justify-content-between">
         <div class="flex-wrap">
           <div class="mb-2">
-            <i class="text-primary ti-headphone-alt mr-1 align-middle"></i><span class="text-dark">在线客服</span>
+            <i class="text-primary ti-email mr-1 align-middle"></i><span class="text-dark">联系邮箱</span>
           </div>
-          <p>专业高效、快速为您答疑</p>
+          <p></p>
           <div>
-            <span class="text-secondary">全国热线：</span>
-            <span class="text-primary">4006-123-688</span>
-          </div>
-        </div>
-        <div class="flex-wrap">
-          <div class="mb-2">
-            <i class="text-primary ti-email mr-1 align-middle"></i><span class="text-dark">客服邮箱</span>
-          </div>
-          <p>方便快捷、随时随地解决您的问题</p>
-          <div>
-            <span class="text-secondary">客服邮箱：</span>
-            <span class="text-primary">kefu@now.cn</span>
-          </div>
-        </div>
-        <div class="flex-wrap">
-          <div class="mb-2">
-            <i class="text-primary ti-comment-alt mr-1 align-middle"></i> <span class="text-dark">提交工单</span>
-          </div>
-          <p>图文反馈，专员实时快速回复</p>
-          <div>
-            <button type="button" onclick="window.location.href = 'https://now.cn/panel/ticket/list'" class="btn btn-primary btn-sm border-0">提交工单</button>
+            <span class="text-secondary"></span>
+            <span class="text-primary">ken.coder.help@gmail.com</span>
           </div>
         </div>
       </div>
